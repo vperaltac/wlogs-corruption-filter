@@ -20,10 +20,12 @@ function show_log(name, corruptions,link){
             const loading = await driver.findElement(By.id("graph-loading"));
             await driver.wait(until.elementIsNotVisible(loading), 1000);
 
-            let players = await driver.findElements(By.className("odd"));
+            let players_odd  = await driver.findElements(By.className("odd"));
+            let players_even = await driver.findElements(By.className("even"));
+            let players = players_even.concat(players_odd);
             for(let player of players){
                 let name = await player.findElement(By.className("main-table-link main-table-player Mage")).getText();
-                let link = await (await player.findElement(By.className("main-table-link main-table-player Mage"))).getAttribute("href");
+                let link = await player.findElement(By.className("main-table-link main-table-player Mage")).getAttribute("href");
 
                 // for some weird reason I can't get the text of corruption-power-name
                 // so i'll be using the icons in order to filter
