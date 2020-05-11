@@ -24,8 +24,9 @@ function show_log(name, corruptions,link){
             let players_even = await driver.findElements(By.className("even"));
             let players = players_even.concat(players_odd);
             for(let player of players){
-                let name = await player.findElement(By.className("main-table-link main-table-player Mage")).getText();
-                let link = await player.findElement(By.className("main-table-link main-table-player Mage")).getAttribute("href");
+                let row = await player.findElement(By.className("main-table-link main-table-player Mage"));
+                let name = await row.getText();
+                let link = await row.getAttribute("href");
 
                 // for some weird reason I can't get the text of corruption-power-name
                 // so i'll be using the icons in order to filter
