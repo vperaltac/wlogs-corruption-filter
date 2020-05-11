@@ -13,8 +13,8 @@ const {Builder, By, Key, until, map} = require('selenium-webdriver');
         // for some weird reason I can't get the text of corruption-power-name
         // so i'll be using the icons in order to filter
         let corrupted_icons = await driver.findElements(By.className("corruption-power-icon"))
-        let text = await corrupciones[1].getAttribute("src");
-        console.log(text);
+        let img = await corrupted_icons[1].getAttribute("src");
+        console.log(img);
     } 
     finally {
         await driver.quit();
