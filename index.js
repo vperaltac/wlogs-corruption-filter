@@ -1,8 +1,11 @@
 const {Builder, By, Key, until, map} = require('selenium-webdriver');
 
 //TODO: show only players with X corruption
-function filter_corruption(name, corruptions){
-    console.log(name + " has " + corruptions);
+function filter_corruption(name, corruptions,link){
+    console.log(name + " : " + link);
+    for(let c of corruptions){
+        console.log("----- " + c + " -----");
+    }
 }
 
 (async function get_info() {
@@ -19,6 +22,7 @@ function filter_corruption(name, corruptions){
         let players = await driver.findElements(By.className("odd"));
         for(let player of players){
             let name = await player.findElement(By.className("main-table-link main-table-player Mage")).getText();
+            let link = await (await player.findElement(By.className("main-table-link main-table-player Mage"))).getAttribute("href");
 
             // for some weird reason I can't get the text of corruption-power-name
             // so i'll be using the icons in order to filter
@@ -35,9 +39,13 @@ function filter_corruption(name, corruptions){
                     corruptions.push("Masterful")
                 else if(img.includes("focusedmind"))
                     corruptions.push("Honed Mind")
+                else if(img.includes("corruptedblood"))
+                    corruptions.push("Gushing Wound")
+                else if(img.includes("starfall"))
+                    corruptions.push("Infinite Stars")
             }
 
-            filter_corruption(name,corruptions);
+            filter_corruption(name,corruptions,link);
         }
     } 
     finally {
