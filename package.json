@@ -1,0 +1,20 @@
+{
+  "name": "wlogs-corruption-filter",
+  "version": "1.0.0",
+  "description": "Tool to filter rankings based on corruption equiped",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "warcraftlogs",
+    "wow",
+    "rankings"
+  ],
+  "author": "Victor Peralta",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  }
+}
