@@ -14,11 +14,11 @@ function show_log(name, corruptions,link){
 
     try {
         for(let i=1;i<=PAGES;i++){
-            await driver.get('https://www.warcraftlogs.com/zone/rankings/24#class=Mage&spec=Fire&boss=2344&page=' + i);
+            await driver.get('https://www.warcraftlogs.com/zone/rankings/24#region=-1&class=Mage&spec=Fire&boss=2344&page=' + i);
 
             // wait until loading finishes
             const loading = await driver.findElement(By.id("graph-loading"));
-            await driver.wait(until.elementIsNotVisible(loading), 1000);
+            await driver.wait(until.elementIsNotVisible(loading), 3000);
 
             let players_odd  = await driver.findElements(By.className("odd"));
             let players_even = await driver.findElements(By.className("even"));
