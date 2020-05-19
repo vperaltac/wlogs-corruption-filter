@@ -9,7 +9,7 @@ function show_log(name, corruptions,link){
     }
 }
 
-(async function get_info(filter) {
+(async function get_info() {
     let driver = await new Builder().forBrowser('chrome').build();
 
     try {
