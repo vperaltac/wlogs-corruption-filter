@@ -9,7 +9,7 @@ function show_log(name, corruptions,link){
     }
 }
 
-(async function get_info() {
+(async function get_info(filter) {
     let driver = await new Builder().forBrowser('chrome').build();
 
     try {
@@ -33,30 +33,52 @@ function show_log(name, corruptions,link){
                 let corrupted_icons = await player.findElements(By.className("corruption-power-icon"));
                 let corruptions = new Array();
 
-                //TODO: cover all posible corruptions
                 for(let cr of corrupted_icons){
                     let img = await cr.getAttribute("src");
 
+                    // Unique Effect Affixes
+                    if(img.includes("starfall"))
+                        corruptions.push("Infinite Stars")
+                    else if(img.includes("wand_1h_nzothraid"))
+                        corruptions.push("Ineffable Truth")
+                    else if(img.includes("yoggsaron"))
+                        corruptions.push("Twisted Appendage")
+                    else if(img.includes("shadesofdarkness"))
+                        corruptions.push("Void Ritual")
+                    else if(img.includes("corruptedblood"))
+                        corruptions.push("Gushing Wound")
+                    else if(img.includes("spell_priest_voidsear"))
+                        corruptions.push("Twilight Devastation")
+                    else if(img.includes("ability_priest_voidentropy"))
+                        corruptions.push("Echoing Void")
+                    else if(img.includes("voidtendrils"))
+                        corruptions.push("Lash of The Void")    
+
+                    // Procced Stat Affixes
+                    else if(img.includes("bloodfrenzy"))
+                        corruptions.push("Racing Pulse")                 // Haste Proc
+                    else if(img.includes("focusedmind")) 
+                        corruptions.push("Honed Mind")                   // Mastery Proc
+                    else if(img.includes("ability_hunter_raptorstrike")) 
+                        corruptions.push("Deadly Momentum")              // Crit proc
+                    else if(img.includes("ability_hunter_raptorstrike"))
+                        corruptions.push("Surging Vitality")             // Versatility proc
+                        
+                    // Passive Affixes
                     if(img.includes("findfish"))
                         corruptions.push("Strikethrough")
                     else if(img.includes("sinistercalling"))
                         corruptions.push("Masterful")
-                    else if(img.includes("focusedmind"))
-                        corruptions.push("Honed Mind")
-                    else if(img.includes("corruptedblood"))
-                        corruptions.push("Gushing Wound")
-                    else if(img.includes("starfall"))
-                        corruptions.push("Infinite Stars")
-                    else if(img.includes("bloodfrenzy"))
-                        corruptions.push("Racing Pulse")
                     else if(img.includes("soulswap"))
                         corruptions.push("Glimpse of Clarity")
-                    else if(img.includes("shadesofdarkness"))
-                        corruptions.push("Void Ritual")
                     else if(img.includes("netherwindpresence"))
                         corruptions.push("Expedient")
-                    else if(img.includes("yoggsaron"))
-                        corruptions.push("Twisted Appendage")
+                    else if(img.includes("spell_arcane_arcanetactics"))
+                        corruptions.push("Versatile")
+                    else if(img.includes("ability_priest_shadowyapparition"))
+                        corruptions.push("Severe")
+                    // Avoidant
+                    
                 }
 
                 if(corruptions.includes("Strikethrough") && !corruptions.includes("Masterful"))
