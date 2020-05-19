@@ -6,13 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- PAGE settings -->
   <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
-  <title>Pricing</title>
-  <meta name="description" content="Wireframe design of a pricing table by Pingendo">
-  <meta name="keywords" content="Pingendo bootstrap example template wireframe pricing table">
-  <meta name="author" content="Pingendo">
+  <title>Corruption Filter</title>
   <!-- CSS dependencies -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="wireframe.css">
+  <link rel="stylesheet" href="../css/wireframe.css">
 </head>
 
 <body class="bg-light">
@@ -21,7 +18,7 @@
       <div class="row">
         <div class="col-md-9 mx-auto">
           <h1 class="display-4">WarcraftLogs Corruption Filter</h1>
-          <p class="lead" contenteditable="true">Select specific corruptions to filter warcraftlogs results.</p>
+          <p class="lead">Select specific corruptions to filter warcraftlogs results.</p>
         </div>
       </div>
     </div>
@@ -32,9 +29,9 @@
         <div class="col-md-12">
           <div class="row">
             <div class="col-md-4">
-                <a href="#" onclick=selected() id="corruption-filter" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
+                <a href="#" onclick=selected(this.id) id="cf-masterful" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
                   <div class="row">
-                    <div class="col-md-3"><img class="img-fluid d-block" src="assets/ability_rogue_sinistercalling.jpg"></div>
+                    <div class="col-md-3"><img class="img-fluid d-block" src="../assets/masterful.jpg"></div>
                     <div class="col-md-9">
                       <h2 class="">Masterful<br></h2>
                     </div>
@@ -42,9 +39,9 @@
                 </a>
             </div>
             <div class="col-md-4">
-              <a href="#" onclick=selected() id="corruption-filter" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
+              <a href="#" onclick=selected(this.id) id="cf-expedient" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
                 <div class="row">
-                  <div class="col-md-3"><img class="img-fluid d-block" src="assets/ability_mage_netherwindpresence.jpg"></div>
+                  <div class="col-md-3"><img class="img-fluid d-block" src="../assets/expedient.jpg"></div>
                   <div class="col-md-9">
                     <h2 class="">Expedient<br></h2>
                   </div>
@@ -52,9 +49,9 @@
               </a>
           </div>
           <div class="col-md-4">
-            <a href="#" onclick=selected() id="corruption-filter" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
+            <a href="#" onclick=selected(this.id) id="cf-strikethrough" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
               <div class="row">
-                <div class="col-md-3"><img class="img-fluid d-block" src="assets/achievement_profession_fishing_findfish.jpg"></div>
+                <div class="col-md-3"><img class="img-fluid d-block" src="../assets/strikethrough.jpg"></div>
                 <div class="col-md-9">
                   <h2 class="">Strikethrough<br></h2>
                 </div>
@@ -62,61 +59,61 @@
             </a>
         </div>
         <div class="col-md-4">
-          <a href="#" onclick=selected() id="corruption-filter" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3">
+          <a href="#" onclick=selected(this.id) id="cf-stars" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3">
             <div class="row">
-              <div class="col-md-3"><img class="img-fluid d-block" src="assets/ability_rogue_sinistercalling.jpg"></div>
+              <div class="col-md-3"><img class="img-fluid d-block" src="../assets/infinite_stars.jpg"></div>
               <div class="col-md-9">
-                <h2 class="">Masterful<br></h2>
+                <h2 class="">Infinite Stars<br></h2>
               </div>
             </div>
           </a>
       </div>
       <div class="col-md-4">
-        <a href="#" onclick=selected() id="corruption-filter" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3">
+        <a href="#" onclick=selected(this.id) id="cf-honed" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3">
           <div class="row">
-            <div class="col-md-3"><img class="img-fluid d-block" src="assets/ability_rogue_sinistercalling.jpg"></div>
+            <div class="col-md-3"><img class="img-fluid d-block" src="../assets/honed_mind.jpg"></div>
             <div class="col-md-9">
-              <h2 class="">Masterful<br></h2>
+              <h2 class="">Honed Mind<br></h2>
             </div>
           </div>
         </a>
     </div>
     <div class="col-md-4">
-      <a href="#" onclick=selected() id="corruption-filter" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
+      <a href="#" onclick=selected(this.id) id="cf-pulse" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
         <div class="row">
-          <div class="col-md-3"><img class="img-fluid d-block" src="assets/ability_rogue_sinistercalling.jpg"></div>
+          <div class="col-md-3"><img class="img-fluid d-block" src="../assets/racing_pulse.jpg"></div>
           <div class="col-md-9">
-            <h2 class="">Masterful<br></h2>
+            <h2 class="">Racing Pulse<br></h2>
           </div>
         </div>
       </a>
   </div>
   <div class="col-md-4">
-    <a href="#" onclick=selected() id="corruption-filter" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
+    <a href="#" onclick=selected(this.id) id="cf-twisted" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
       <div class="row">
-        <div class="col-md-3"><img class="img-fluid d-block" src="assets/ability_rogue_sinistercalling.jpg"></div>
+        <div class="col-md-3"><img class="img-fluid d-block" src="../assets/twisted_appendage.jpg"></div>
         <div class="col-md-9">
-          <h2 class="">Masterful<br></h2>
+          <h2 class="">Twisted Appendage<br></h2>
         </div>
       </div>
     </a>
 </div>
 <div class="col-md-4">
-  <a href="#" onclick=selected() id="corruption-filter" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
+  <a href="#" onclick=selected(this.id) id="cf-gushing" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
     <div class="row">
-      <div class="col-md-3"><img class="img-fluid d-block" src="assets/ability_rogue_sinistercalling.jpg"></div>
+      <div class="col-md-3"><img class="img-fluid d-block" src="../assets/gushing_wound.jpg"></div>
       <div class="col-md-9">
-        <h2 class="">Masterful<br></h2>
+        <h2 class="">Gushing Wound</h2>
       </div>
     </div>
   </a>
 </div>
 <div class="col-md-4">
-  <a href="#" onclick=selected() id="corruption-filter" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
+  <a href="#" onclick=selected(this.id) id="cf-ritual" class="list-group-item list-group-item-action flex-column align-items-start p-2 mb-3 ">
     <div class="row">
-      <div class="col-md-3"><img class="img-fluid d-block" src="assets/ability_rogue_sinistercalling.jpg"></div>
+      <div class="col-md-3"><img class="img-fluid d-block" src="../assets/void_ritual.jpg"></div>
       <div class="col-md-9">
-        <h2 class="">Masterful<br></h2>
+        <h2 class="">Void Ritual<br></h2>
       </div>
     </div>
   </a>
@@ -127,7 +124,17 @@
       </div>
     </div>
   </div>
-  <div class="py-3">
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><a class="btn btn-primary btn-block btn-lg" href="#">Search</a></div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-3 footer">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
@@ -139,7 +146,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script src="selected.js"></script>
+  <script src="../js/selected.js"></script>
 </body>
 
 </html>

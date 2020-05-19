@@ -1,8 +1,8 @@
-const elem1 = document.getElementById("corruption-filter");
+function selected(id){
+    const elem = document.getElementById(id);
 
-function selected(){
-    if(elem1.classList.contains("list-group-item-success"))
-        elem1.classList.remove("list-group-item-success");
+    if(elem.classList.contains("list-group-item-success"))
+        elem.classList.remove("list-group-item-success");
     else
-        elem1.classList.add("list-group-item-success");
+        elem.classList.add("list-group-item-success");
 }
