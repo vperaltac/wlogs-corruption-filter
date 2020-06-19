@@ -1,4 +1,4 @@
-// adapt the table to the window actual window size
+// adapt the table to the window size the first time it gets open
 adaptTable();
 
 function selected(id){
