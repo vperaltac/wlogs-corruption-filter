@@ -1,6 +1,27 @@
 const {Builder, By, Key, until, map} = require('selenium-webdriver');
-
 const PAGES = 5;
+
+var corruptionNames = new Map();
+corruptionNames.set('starfall','Infinite Stars');
+corruptionNames.set('wand_1h_nzothraid','Ineffable Truth');
+corruptionNames.set('yoggsaron','Twisted Appendage');
+corruptionNames.set('shadesofdarkness','Void Ritual');
+corruptionNames.set('corruptedblood','Gushing Wound');
+corruptionNames.set('spell_priest_voidsear','Twilight Devastation');
+corruptionNames.set('ability_priest_voidentropy','Echoing Void');
+corruptionNames.set('voidtendrils','Lash of The Void');
+corruptionNames.set('bloodfrenzy','Racing Pulse');
+corruptionNames.set('focusedmind','Honed Mind');
+corruptionNames.set('ability_hunter_raptorstrike','Deadly Momentum');
+corruptionNames.set('ability_hunter_onewithnature','Surging Vitality');
+corruptionNames.set('findfish','Strikethrough');
+corruptionNames.set('sinistercalling','Masterful');
+corruptionNames.set('soulswap','Glimpse of Clarity');
+corruptionNames.set('netherwindpresence','Expedient');
+corruptionNames.set('spell_arcane_arcanetactics','Versatile');
+corruptionNames.set('ability_priest_shadowyapparition','Severe');
+corruptionNames.set('spell_warlock_demonsoul','Avoidant');
+
 
 function show_log(name, corruptions,link){
     console.log(name + " : " + link);
@@ -36,49 +57,10 @@ function show_log(name, corruptions,link){
                 for(let cr of corrupted_icons){
                     let img = await cr.getAttribute("src");
 
-                    // Unique Effect Affixes
-                    if(img.includes("starfall"))
-                        corruptions.push("Infinite Stars")
-                    else if(img.includes("wand_1h_nzothraid"))
-                        corruptions.push("Ineffable Truth")
-                    else if(img.includes("yoggsaron"))
-                        corruptions.push("Twisted Appendage")
-                    else if(img.includes("shadesofdarkness"))
-                        corruptions.push("Void Ritual")
-                    else if(img.includes("corruptedblood"))
-                        corruptions.push("Gushing Wound")
-                    else if(img.includes("spell_priest_voidsear"))
-                        corruptions.push("Twilight Devastation")
-                    else if(img.includes("ability_priest_voidentropy"))
-                        corruptions.push("Echoing Void")
-                    else if(img.includes("voidtendrils"))
-                        corruptions.push("Lash of The Void")    
-
-                    // Procced Stat Affixes
-                    else if(img.includes("bloodfrenzy"))
-                        corruptions.push("Racing Pulse")                 // Haste Proc
-                    else if(img.includes("focusedmind")) 
-                        corruptions.push("Honed Mind")                   // Mastery Proc
-                    else if(img.includes("ability_hunter_raptorstrike")) 
-                        corruptions.push("Deadly Momentum")              // Crit proc
-                    else if(img.includes("ability_hunter_raptorstrike"))
-                        corruptions.push("Surging Vitality")             // Versatility proc
-                        
-                    // Passive Affixes
-                    if(img.includes("findfish"))
-                        corruptions.push("Strikethrough")
-                    else if(img.includes("sinistercalling"))
-                        corruptions.push("Masterful")
-                    else if(img.includes("soulswap"))
-                        corruptions.push("Glimpse of Clarity")
-                    else if(img.includes("netherwindpresence"))
-                        corruptions.push("Expedient")
-                    else if(img.includes("spell_arcane_arcanetactics"))
-                        corruptions.push("Versatile")
-                    else if(img.includes("ability_priest_shadowyapparition"))
-                        corruptions.push("Severe")
-                    // Avoidant
-                    
+                    corruptionNames.forEach(function(value, key) {
+                        if(img.includes(key))
+                            corruptions.push(value);
+                    })
                 }
 
                 if(corruptions.includes("Strikethrough") && !corruptions.includes("Masterful"))
