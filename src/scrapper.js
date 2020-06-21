@@ -1,5 +1,12 @@
 const {Builder, By, Key, until, map} = require('selenium-webdriver');
-const PAGES = 5;
+const chrome = require('selenium-webdriver/chrome');
+const PAGES = 1;
+
+var options = new chrome.Options();
+//Below arguments are critical for Heroku deployment
+options.addArguments("--headless");
+options.addArguments("--disable-gpu");
+options.addArguments("--no-sandbox");
 
 var corruptionNames = new Map();
 corruptionNames.set('starfall','Infinite Stars');
@@ -31,7 +38,10 @@ function show_log(name, corruptions,link){
 }
 
 (async function get_info() {
-    let driver = await new Builder().forBrowser('chrome').build();
+    let driver = await new Builder()
+        .forBrowser('chrome')
+        .setChromeOptions(options)
+        .build();
 
     try {
         for(let i=1;i<=PAGES;i++){
