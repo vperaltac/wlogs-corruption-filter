@@ -11,11 +11,11 @@ app.use(express.static('views'));
 app.set('view engine', 'pug')
 
 app.get('/', function (req, res) {
-    res.render('html/index', {title: 'Hey', message: 'Hello there!' })
+    res.render('templates/index', {title: 'Hey', message: 'Hello there!' })
 })
 
 app.get('/login', function (req,res){
-    res.render('html/signin',{});
+    res.render('templates/signin',{});
 })
 
 app.listen(PORT, () => console.log(`App listening at port: ${PORT}`));
