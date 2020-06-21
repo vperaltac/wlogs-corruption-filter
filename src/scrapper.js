@@ -1,7 +1,7 @@
 const {Builder, By, Key, until, map} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const logs   = require('./logs');
-const PAGES = 1;
+const PAGES = 5;
 
 var options = new chrome.Options();
 //Below arguments are critical for Heroku deployment
@@ -41,6 +41,9 @@ function show_log(name, corruptions,link){
 }
 
 (async function get_info() {
+    // delete all previous logs before inserting daily data
+    logs.deleteLogs();
+
     let driver = await new Builder()
         .forBrowser('chrome')
         .setChromeOptions(options)

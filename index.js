@@ -2,7 +2,8 @@ const express = require('express');
 const app     = express();
 const pug     = require('pug');
 const PORT    = process.env.PORT || 5000;
-const DB      = require('./src/users');
+const users   = require('./src/users');
+const logs    = require('./src/logs');
 
 // Body parser
 app.use(express.json());
@@ -15,12 +16,27 @@ app.get('/', function (req, res) {
 })
 
 app.get('/test', async(req,res) =>{
-    let users = await DB.getUsers();
+    let users = await users.getUsers();
     res.json(JSON.stringify(users));
 })
 
+app.get('/logs', async(req,res) =>{
+    let data = await logs.getLogs();
+
+    for(let d of data){
+        let string = "";
+        for(let c of d.corruptions){
+            string = string + c + " ";
+        }
+
+        d.corruptions = string;
+    }
+
+    res.render('templates/logs', {data: data})
+})
+
 app.post('/login', async (req,res) =>{
-    let verifyUser = await DB.verifyUser(req.body.email,req.body.passwd);
+    let verifyUser = await users.verifyUser(req.body.email,req.body.passwd);
 
     if(verifyUser)
         res.render('templates/index', {title: 'Hey', message: 'Hello there!' })
