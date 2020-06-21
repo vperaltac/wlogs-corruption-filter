@@ -1,1 +1,1 @@
-web: node src/scrapper.js
+web: node index.js
