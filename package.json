@@ -4,7 +4,8 @@
   "description": "Tool to filter rankings based on corruption equiped",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node index.js"
   },
   "keywords": [
     "warcraftlogs",
