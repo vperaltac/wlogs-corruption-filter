@@ -1,5 +1,6 @@
 const {Builder, By, Key, until, map} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
+const logs   = require('./logs');
 const PAGES = 1;
 
 var options = new chrome.Options();
@@ -35,6 +36,8 @@ function show_log(name, corruptions,link){
     for(let c of corruptions){
         console.log("----- " + c + " -----");
     }
+    
+    logs.addLog(name,link,corruptions);
 }
 
 (async function get_info() {
