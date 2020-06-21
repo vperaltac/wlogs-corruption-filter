@@ -1,0 +1,124 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    // PAGE settings
+    link(rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico")
+    title Corruption Filter
+    // CSS dependencies
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css")
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+  body.bg-light
+    .pt-5.text-center
+      .container
+        .row
+          .col-md-9.mx-auto
+            h1.display-4 WarcraftLogs Corruption Filter
+            p.lead
+              | Select specific corruptions to filter warcraftlogs results.
+    .text-center
+      .container
+        .row.pt-4
+          .col-md-12
+            .row
+              .col-md-4.corruption-item
+                a#cf-masterful.list-group-item.list-group-item-action.flex-column.align-items-start.p-2.mb-3(href="#" onclick="selected(this.id); return false")
+                  .row
+                    .col-md-3
+                      img.img-fluid.d-block(src="../assets/masterful.jpg")
+                    .col-md-9
+                      h3
+                        | Masterful
+                        br
+              .col-md-4.corruption-item
+                a#cf-expedient.list-group-item.list-group-item-action.flex-column.align-items-start.p-2.mb-3(href="#" onclick="selected(this.id); return false")
+                  .row
+                    .col-md-3
+                      img.img-fluid.d-block(src="../assets/expedient.jpg")
+                    .col-md-9
+                      h2
+                        | Expedient
+                        br
+              .table-divider
+              .col-md-4.corruption-item
+                a#cf-strikethrough.list-group-item.list-group-item-action.flex-column.align-items-start.p-2.mb-3(href="#" onclick="selected(this.id); return false")
+                  .row
+                    .col-md-3
+                      img.img-fluid.d-block(src="../assets/strikethrough.jpg")
+                    .col-md-9
+                      h3
+                        | Strikethrough
+                        br
+              .col-md-4.corruption-item
+                a#cf-stars.list-group-item.list-group-item-action.flex-column.align-items-start.p-2.mb-3(href="#" onclick="selected(this.id); return false")
+                  .row
+                    .col-md-3
+                      img.img-fluid.d-block(src="../assets/infinite_stars.jpg")
+                    .col-md-9
+                      h3
+                        | Infinite Stars
+                        br
+              .table-divider
+              .col-md-4.corruption-item
+                a#cf-honed.list-group-item.list-group-item-action.flex-column.align-items-start.p-2.mb-3(href="#" onclick="selected(this.id); return false")
+                  .row
+                    .col-md-3
+                      img.img-fluid.d-block(src="../assets/honed_mind.jpg")
+                    .col-md-9
+                      h3
+                        | Honed Mind
+                        br
+              .col-md-4.corruption-item
+                a#cf-pulse.list-group-item.list-group-item-action.flex-column.align-items-start.p-2.mb-3(href="#" onclick="selected(this.id); return false")
+                  .row
+                    .col-md-3
+                      img.img-fluid.d-block(src="../assets/racing_pulse.jpg")
+                    .col-md-9
+                      h3
+                        | Racing Pulse
+                        br
+              .table-divider
+              .col-md-4.corruption-item
+                a#cf-twisted.list-group-item.list-group-item-action.flex-column.align-items-start.p-2.mb-3(href="#" onclick="selected(this.id); return false")
+                  .row
+                    .col-md-3
+                      img.img-fluid.d-block(src="../assets/twisted_appendage.jpg")
+                    .col-md-9
+                      h3
+                        | Twisted Appendage
+                        br
+              .col-md-4.corruption-item
+                a#cf-gushing.list-group-item.list-group-item-action.flex-column.align-items-start.p-2.mb-3(href="#" onclick="selected(this.id); return false")
+                  .row
+                    .col-md-3
+                      img.img-fluid.d-block(src="../assets/gushing_wound.jpg")
+                    .col-md-9
+                      h3 Gushing Wound
+              .table-divider
+              .col-md-4.corruption-item
+                a#cf-ritual.list-group-item.list-group-item-action.flex-column.align-items-start.p-2.mb-3(href="#" onclick="selected(this.id); return false")
+                  .row
+                    .col-md-3
+                      img.img-fluid.d-block(src="../assets/void_ritual.jpg")
+                    .col-md-9
+                      h3
+                        | Void Ritual
+                        br
+    .py-2
+      .container
+        .row
+          .col-md-4
+          .col-md-4
+            a.btn.btn-primary.btn-block.btn-lg(href="#") Search
+          .col-md-4
+    .py-3.footer-copyright
+      .container
+        .row
+          .col-md-12.text-center
+            p.mb-0
+              | © 2020 Víctor Peralta | Chërokee-DunModr | All rights reserved
+    script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous")
+    script(src="../js/selected.js")

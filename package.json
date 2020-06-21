@@ -14,7 +14,9 @@
   "author": "Victor Peralta",
   "license": "GPL-3.0",
   "dependencies": {
+    "express": "^4.17.1",
     "node-fetch": "^2.6.0",
+    "pug": "^3.0.0",
     "selenium-webdriver": "^4.0.0-alpha.7"
   }
 }
