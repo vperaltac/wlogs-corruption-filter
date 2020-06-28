@@ -32,10 +32,7 @@ async function verifyUser(email,password){
         });
     })
     
-    if(verify)
-        return true;
-    else
-        return false;
+    return verify;
 }
 
 async function loadUsersCollection(){
