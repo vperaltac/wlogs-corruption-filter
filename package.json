@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "MONGODB_CONN=mongodb://heroku_270mcphh:ue2n88mdgnp1dtm9n290g57rk@ds229909.mlab.com:29909/heroku_270mcphh nodemon index.js"
   },
   "keywords": [
     "warcraftlogs",

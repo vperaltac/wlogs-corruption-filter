@@ -6,6 +6,11 @@ async function getLogs(){
     return await logs.find({}).sort({"rank":1}).toArray();
 }
 
+async function getFilteredLogs(filter){
+    const logs = await loadLogsCollection();
+    return await logs.find({}).sort({"rank":1}).toArray();
+}
+
 async function addLog(rank,player,link,corruptions){
     let corrs = new Array();
 

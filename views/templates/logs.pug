@@ -34,20 +34,20 @@ html(lang="en")
             tr
               th(scope="col") Rank
               th(scope="col") Player
-              th(scope="col") Link
               th(scope="col") Corruptions
           tbody
             each val in data.length ? data : ['There are no values']
                 tr
                 td(scope="row")= val.rank
-                th(scope="row")= val.player
+                th(scope="row") 
+                  a(href=val.link, target="_blank") #{val.player}
                 td
-                    a(href=val.link, target="_blank") #{val.link}
-                td
-                    for corr in val.corruptions
-                      .row
-                        .col
-                          img(src=corr.icon width="100%")
-                        .col
-                          = corr.name + " " + corr.amount
+                  .container
+                  for corr in val.corruptions
+                    .row.mb-1
+                      .col-md-auto
+                        img(src=corr.icon width="100%")
+                      .col-md-auto
+                        = corr.name + " " + corr.amount
+                      hr
                 tr

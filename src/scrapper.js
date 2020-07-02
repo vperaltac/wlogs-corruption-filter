@@ -51,8 +51,6 @@ function show_log(name, corruptions,link,rank){
         .setChromeOptions(options)
         .build();
 
-    const actions = driver.actions();
-
     try {
         for(let i=1;i<=PAGES;i++){
             await driver.get('https://www.warcraftlogs.com/zone/rankings/24#region=-1&class=Mage&spec=Fire&boss=2344&page=' + i);
@@ -63,17 +61,19 @@ function show_log(name, corruptions,link,rank){
 
             let players_odd  = await driver.findElements(By.className("odd"));
             let players_even = await driver.findElements(By.className("even"));
-            let players = players_even.concat(players_odd);
+            let players = players_odd.concat(players_even);
 
             for(let player of players){
                 let corruption_container = await player.findElement(By.className("corruption-cell"));
-                await actions.click(corruption_container).perform();
 
                 let row = await player.findElement(By.className("main-table-link main-table-player Mage"));
                 let name = await row.getText();
                 let link = await row.getAttribute("href");
                 let rank_row = await player.findElement(By.className("rank"));
                 let rank = await rank_row.getText();
+
+                let actions = driver.actions();
+                await actions.click(corruption_container).perform();
 
                 // for some weird reason I can't get the text of corruption-power-name
                 // so i'll be using the icons in order to filter
@@ -85,7 +85,7 @@ function show_log(name, corruptions,link,rank){
                     let corruption_icon   = await cr.findElement(By.className('corruption-power-icon'));
 
                     let corruption_amount = await cr.findElement(By.className('corruption-power-amount'));
-                    await driver.wait(until.elementTextMatches(corruption_amount,re),3000);
+                    await driver.wait(until.elementTextMatches(corruption_amount,re),10000);
 
                     let img = await corruption_icon.getAttribute("src");
                     let amount = await corruption_amount.getText();
