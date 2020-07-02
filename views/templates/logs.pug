@@ -44,9 +44,10 @@ html(lang="en")
                 td
                     a(href=val.link, target="_blank") #{val.link}
                 td
-                  ul.list-unstyled
                     for corr in val.corruptions
-                      li.mt-1
-                        img(src=corr.icon width='20%').mr-2
-                        = corr.name + " " + corr.amount
+                      .row
+                        .col
+                          img(src=corr.icon width="100%")
+                        .col
+                          = corr.name + " " + corr.amount
                 tr
