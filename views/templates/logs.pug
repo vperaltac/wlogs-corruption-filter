@@ -32,14 +32,21 @@ html(lang="en")
         table.table.table-hover
           thead.thead-dark
             tr
+              th(scope="col") Rank
               th(scope="col") Player
               th(scope="col") Link
               th(scope="col") Corruptions
           tbody
             each val in data.length ? data : ['There are no values']
                 tr
+                td(scope="row")= val.rank
                 th(scope="row")= val.player
                 td
                     a(href=val.link, target="_blank") #{val.link}
-                td= val.corruptions
+                td
+                  ul.list-unstyled
+                    for corr in val.corruptions
+                      li.mt-1
+                        img(src=corr.icon width='20%').mr-2
+                        = corr.name + " " + corr.amount
                 tr

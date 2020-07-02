@@ -1,16 +1,28 @@
 const mongodb = require('mongodb');
+const Corruption = require('./corruption');
 
 async function getLogs(){
     const logs = await loadLogsCollection();
-    return await logs.find({}).toArray();
+    return await logs.find({}).sort({"rank":1}).toArray();
 }
 
-async function addLog(player,link,corruptions){
+async function addLog(rank,player,link,corruptions){
+    let corrs = new Array();
+
+    for(let corruption of corruptions){
+        corrs.push({
+            'name': corruption.getName(),
+            'amount': corruption.getAmount(),
+            'icon': corruption.getIcon()
+        })
+    }
+
     const logs = await loadLogsCollection();
     await logs.insertOne({
+        "rank":parseInt(rank,10),
         "player": player,
         "link": link,
-        "corruptions": corruptions
+        "corruptions": corrs
     });
 }
 

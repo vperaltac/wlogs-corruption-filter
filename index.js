@@ -22,16 +22,6 @@ app.get('/test', async(req,res) =>{
 
 app.get('/logs', async(req,res) =>{
     let data = await logs.getLogs();
-
-    for(let d of data){
-        let string = "";
-        for(let c of d.corruptions){
-            string = string + c + " ";
-        }
-
-        d.corruptions = string;
-    }
-
     res.render('templates/logs', {data: data})
 })
 

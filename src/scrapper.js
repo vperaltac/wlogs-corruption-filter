@@ -3,7 +3,7 @@ const chrome = require('selenium-webdriver/chrome');
 const logs   = require('./logs');
 const Corruption = require('./corruption');
 const { text } = require('express');
-const PAGES = 5;
+const PAGES = 1;
 
 var options = new chrome.Options();
 //Below arguments are critical for Heroku deployment
@@ -39,7 +39,7 @@ function show_log(name, corruptions,link,rank){
         console.log("----- " + c.getName() + " " + c.getAmount() + " " + c.getIcon());
     }
     
-    logs.addLog(name,link,corruptions);
+    logs.addLog(rank,name,link,corruptions);
 }
 
 (async function get_info() {
@@ -64,6 +64,7 @@ function show_log(name, corruptions,link,rank){
             let players_odd  = await driver.findElements(By.className("odd"));
             let players_even = await driver.findElements(By.className("even"));
             let players = players_even.concat(players_odd);
+
             for(let player of players){
                 let corruption_container = await player.findElement(By.className("corruption-cell"));
                 await actions.click(corruption_container).perform();
@@ -79,10 +80,13 @@ function show_log(name, corruptions,link,rank){
                 let corruption_row = await player.findElements(By.className("corruption-power-row"));
                 let corruptions = new Array();
 
+                let re = new RegExp("\\d+");
                 for(let cr of corruption_row){
                     let corruption_icon   = await cr.findElement(By.className('corruption-power-icon'));
+
                     let corruption_amount = await cr.findElement(By.className('corruption-power-amount'));
-                    
+                    await driver.wait(until.elementTextMatches(corruption_amount,re),3000);
+
                     let img = await corruption_icon.getAttribute("src");
                     let amount = await corruption_amount.getText();
 
@@ -96,7 +100,9 @@ function show_log(name, corruptions,link,rank){
                 show_log(name,corruptions,link,rank);
             }
         }
-    } 
+    } catch(e){
+        console.log(e);
+    }
     finally {
         await driver.quit();
     }
