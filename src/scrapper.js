@@ -1,3 +1,4 @@
+require('dotenv').config();
 const {Builder, By, Key, until, map} = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const logs   = require('./logs');
